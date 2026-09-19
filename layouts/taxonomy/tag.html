@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <h1 class="mb-2 text-xl font-semibold">{{ .Title }}</h1>
+  <p class="mb-8 text-sm text-neutral-500 dark:text-neutral-500">
+    Posts tagged &ldquo;{{ .Data.Term }}&rdquo;
+  </p>
+  {{ partial "post-list.html" . }}
+{{ end }}

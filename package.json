@@ -1,0 +1,11 @@
+{
+  "name": "personal-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "marksb.io — personal site and blog, built with Hugo",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "tailwindcss": "^4.3.3"
+  }
+}

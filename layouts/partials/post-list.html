@@ -1,0 +1,12 @@
+<ul class="space-y-4">
+  {{ range .Pages.ByDate.Reverse }}
+    <li class="flex flex-wrap items-baseline gap-x-3">
+      <a href="{{ .Permalink }}" class="font-medium">{{ .Title }}</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-sm text-neutral-500 dark:text-neutral-500">
+        {{ .Date.Format "January 2, 2006" }}
+      </time>
+    </li>
+  {{ else }}
+    <li class="text-neutral-500 dark:text-neutral-500">No posts yet.</li>
+  {{ end }}
+</ul>
