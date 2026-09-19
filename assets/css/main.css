@@ -5,8 +5,34 @@
 @source "../../hugo_stats.json";
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: Charter, "Iowan Old Style", "Georgia", "Times New Roman", serif;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/*
+ * Typographic scale (all sizes are Tailwind's default scale, no
+ * arbitrary values):
+ *   meta (dates, footer, tag descriptor/chips, nav links) — text-sm   0.875rem
+ *   nav brand / body copy                                 — text-base 1rem
+ *   list/tag/404 page <h1>                                — text-xl   1.25rem
+ *   single post/page <h1>                                 — text-2xl → sm:text-3xl  1.5rem → 1.875rem
+ * Post body headings (h2/h3/... inside `.prose`) use Tailwind
+ * Typography's own built-in scale, left at its defaults.
+ */
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/open-sans-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/open-sans-600.woff2") format("woff2");
 }
 
 @layer base {
@@ -16,7 +42,7 @@
 
   body {
     @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100;
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
   }
 
   a {
