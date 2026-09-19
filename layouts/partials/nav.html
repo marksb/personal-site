@@ -1,0 +1,12 @@
+<header class="mb-12">
+  <nav class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+    <a href="{{ "/" | relURL }}" class="text-base font-semibold no-underline hover:underline">
+      {{ .Site.Title }}
+    </a>
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL | relURL }}" class="text-sm text-neutral-600 dark:text-neutral-400">
+        {{ .Name }}
+      </a>
+    {{ end }}
+  </nav>
+</header>

@@ -1,0 +1,36 @@
+baseURL = "https://marksb.io/"
+languageCode = "en-us"
+title = "Mark Backsmeier"
+timeZone = "America/Chicago"
+
+enableRobotsTXT = false
+disableKinds = ["RSS", "taxonomy"]
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  tagline = "Notes on software, and other things."
+
+[[menus.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menus.main]]
+  name = "About"
+  url = "/about/"
+  weight = 20
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = "hugo_stats\\.json"
+    target = "css"
+  [[build.cachebusters]]
+    source = "(postcss|tailwind)\\.config\\.js"
+    target = "css"
