@@ -22,6 +22,11 @@ disableKinds = ["RSS", "taxonomy"]
   url = "/about/"
   weight = 20
 
+[[menus.main]]
+  name = "Travel"
+  url = "/travel/"
+  weight = 30
+
 [markup.goldmark.renderer]
   unsafe = false
 

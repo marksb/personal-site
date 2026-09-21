@@ -1,0 +1,22 @@
+# Countries visited, keyed by lowercase ISO 3166-1 alpha-2 code (matching
+# the `id` attributes in layouts/partials/travel/world-map.html). A country
+# is highlighted on the map as soon as it has at least one entry in
+# `visits`. Each visit needs a `year` and a short `description`; a country
+# can have multiple visits/years.
+#
+# The entries below are placeholders, not real travel history — replace
+# them with your own.
+
+us:
+  name: "United States"
+  visits:
+    - year: 2019
+      description: "Example — replace with your own travel history."
+    - year: 2023
+      description: "Example — replace with your own travel history."
+
+fr:
+  name: "France"
+  visits:
+    - year: 2022
+      description: "Example — replace with your own travel history."
