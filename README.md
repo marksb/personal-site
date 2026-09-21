@@ -36,6 +36,26 @@ Body text in Markdown.
 `draft: true` posts are visible with `make dev` / `hugo server -D` but are
 excluded from `make build` and from CI/production builds.
 
+## Travel page
+
+`/travel/` shows a world map with visited countries highlighted, backed by
+`data/travel.yaml`. Add or edit entries there — each country is keyed by
+its lowercase ISO 3166-1 alpha-2 code (matching the `id`s in
+`layouts/partials/travel/world-map.html`) and lists one or more visits:
+
+```yaml
+us:
+  name: "United States"
+  visits:
+    - year: 2019
+      description: "Short description of that trip."
+```
+
+A country is highlighted on the map as soon as it has at least one entry
+in `visits`; the page also lists every visited country with its years and
+descriptions below the map. The shipped data is placeholder — replace it
+with your own history.
+
 ## Deployment
 
 Every push to `main` builds the site and deploys it to GitHub Pages via
@@ -64,3 +84,9 @@ Code in this repository is licensed under the [MIT License](./LICENSE).
 
 Written content (posts, pages) is **all rights reserved** — © the current
 year, Mark Backsmeier — and is not covered by the code license.
+
+The world map at `layouts/partials/travel/world-map.html` is
+[`@svg-maps/world`](https://github.com/VictorCazanave/svg-maps), based on
+[MapSVG](https://mapsvg.com/maps/world), licensed
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — not covered by
+the MIT license above; attribution is also given on the Travel page itself.

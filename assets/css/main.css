@@ -58,6 +58,20 @@
   src: url("/fonts/merriweather-700.woff2") format("woff2");
 }
 
+:root {
+  --map-unvisited: #e5e5e5;
+  --map-visited: #404040;
+  --map-border: #a3a3a3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --map-unvisited: #262626;
+    --map-visited: #d4d4d4;
+    --map-border: #525252;
+  }
+}
+
 @layer base {
   html {
     color-scheme: light dark;

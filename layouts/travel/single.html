@@ -1,0 +1,48 @@
+{{ define "main" }}
+  {{ $codes := slice }}
+  {{ range $code, $_ := .Site.Data.travel }}
+    {{ $codes = $codes | append $code }}
+  {{ end }}
+
+  <article>
+    <header class="mb-8">
+      <h1 class="text-2xl font-semibold sm:text-3xl">{{ .Title }}</h1>
+    </header>
+
+    <style>
+      .world-map { width: 100%; height: auto; }
+      .world-map path { fill: var(--map-unvisited); stroke: var(--map-border); stroke-width: 0.5; }
+      {{ if $codes }}
+        .world-map path:is(#{{ delimit $codes ", #" | safeCSS }}) { fill: var(--map-visited); }
+      {{ end }}
+    </style>
+
+    <div>
+      {{ partial "travel/world-map.html" . }}
+    </div>
+    <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-500">
+      Map data: <a href="https://mapsvg.com/maps/world">MapSVG</a>, via
+      <a href="https://github.com/VictorCazanave/svg-maps">@svg-maps/world</a>
+      (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).
+    </p>
+
+    {{ $visited := sort .Site.Data.travel "name" }}
+    {{ if $visited }}
+      <ul class="mt-10 space-y-8">
+        {{ range $visited }}
+          <li>
+            <h2 class="text-lg font-semibold">{{ .name }}</h2>
+            <ul class="mt-2 space-y-2">
+              {{ range sort .visits "year" }}
+                <li>
+                  <span class="font-semibold">{{ .year }}</span>
+                  <span class="text-neutral-700 dark:text-neutral-300">— {{ .description }}</span>
+                </li>
+              {{ end }}
+            </ul>
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </article>
+{{ end }}
